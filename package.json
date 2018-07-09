@@ -1,0 +1,26 @@
+{
+  "name": "node-todos",
+  "version": "1.0.0",
+  "description": "App node to do",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "node-todos"
+  ],
+  "author": "Blue",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-flash": "0.0.2",
+    "express-form": "^0.12.6",
+    "express-validator": "^5.2.0",
+    "mongoose": "^5.2.0",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.7"
+  }
+}

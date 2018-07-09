@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app.todos">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node/Angular Todos</title>
+
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.8.1/css/xeditable.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.8.1/js/xeditable.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main/app.js"></script>
+    <script src="assets/js/main/services/svTodos.js"></script>
+</head>
+<body ng-controller="todoController">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="https://dinhletrieuduong.github.io"><%= appName %></a>
+         <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        
+        <span class="navbar-text">
+            <button type="button" class="btn btn-outline-primary">
+            <a href="/login">Login </a>
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+            <a href="/signup">Sign Up </a>
+            </button>
+            
+        </span>
+    </nav>
+    <div class="jumbotron text-center container-fluid">
+        <h1>
+            {{appName}}
+            <span class="badge badge-primary">{{todos.length}}</span>
+        </h1>
+    </div>
+    <div class="container body">
+        
+        
+        <div id="todo-form" class="row">
+            <div class="col-sm-9 offset-sm-3">
+                <form>
+                    <div class="form-group col-sm-7">
+                        <input type="text" ng-model="formData.text" class="form-control form-control-md" placeholder="What do you want to do?">
+                    </div>
+                    <button type="button" ng-disabled="!formData.text" class="btn btn-primary btn-md" ng-click="createTodo()">Add</button>
+                </form>
+            </div>
+        </div>
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 list">
+                <div class="checkbox" ng-repeat="todo in todos">
+                    <a href ng-click="deleteTodo(todo, todo._id)">
+                        <i class="fa fa-trash-alt"></i>
+                    </a>
+                    <a href ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <input type="checkbox" ng-model="todo.isDone" ng-change="updateTodo(todo)">
+                    <span ng-class="{strike: todo.isDone}" editable-text="todo.text" e-form ="textBtnForm" onaftersave="updateTodo(todo)" >
+                        {{todo.text}}
+                    </span> 
+                </div>
+               
+            </div>
+            
+        </div>
+        <div class="text-center">
+            <a href>Create new list</a>
+            <br> <br>
+            <p class="text-center" ng-show="loading">
+                <span class="fa fa-spinner fa-spin fa-3x"></span>
+            </p>
+            <br>
+        </div>
+    </div>
+<footer class="container-fluid" >
+    <p class= "jumbotron text-center">
+        Copyright <i class="fas fa-copyright"></i> by Blue 
+    </p>
+</footer>
+</body>
+</html>

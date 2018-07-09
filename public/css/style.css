@@ -1,0 +1,27 @@
+a:hover{
+    text-decoration: none;
+}
+.body{
+    min-height: 500px;
+}
+#todo-list{
+    margin-bottom: 50px;
+}
+
+#todo-form{
+    margin-bottom: 50px;
+}
+.form-group{
+    display: inline-block;
+}
+.strike{
+    text-decoration: line-through;
+}
+
+.checkbox a{
+    float: right;
+}
+.list{
+    background-color: #eee;
+    padding: 20px;
+}

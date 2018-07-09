@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script>
+            /*$(document).ready(function () {
+                var from, to, subject, text;
+                $("#send_email").click(function () {
+                    to = $("#email").val();
+                    $("#message").html("<i>Sending E-mail...Please wait</i>");
+                    $.post("/send", { to: to }, function (data) {
+                        console.log(data);
+                        if (data == "OK") {
+                            $("#message").empty().html("<p><i>Email is been sent at " + to + ". Please check inbox !</i></p>");
+                        }
+
+                    });
+                });
+            });*/
+        </script>
+    </head>
+    <body>  
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form action="/submit" method="post">
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" >
+                </div>
+                <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                </div>
+                <div class="form-group">
+                <label for="re-pwd">Password:</label>
+                <input type="password" class="form-control" id="re-pwd" placeholder="Confirm password" name="re-pwd" >
+                </div>
+                <span>Have an account? <a href="/login">Login</a></span>
+                <br>
+                <button type="submit" id="send_email" class="btn btn-success">Sign Up</button>
+                <br>
+                <span id="message"></span>
+            </form>
+        </div>
+        
+    </body>
+</html>
