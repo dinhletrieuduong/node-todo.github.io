@@ -19,7 +19,7 @@
     "express-flash": "0.0.2",
     "express-form": "^0.12.6",
     "express-validator": "^5.2.0",
-    "mongoose": "^5.2.0",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.0",
     "nodemailer": "^4.6.7"
   }
